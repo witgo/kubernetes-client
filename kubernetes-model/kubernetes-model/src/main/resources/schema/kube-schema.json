@@ -5617,6 +5617,21 @@
         "io.fabric8.kubernetes.api.model.KubernetesResource"
       ]
     },
+    "kubernetes_core_LocalDirVolumeSource": {
+      "type": "object",
+      "description": "",
+      "properties": {
+        "sizeLimit": {
+          "$ref": "#/definitions/kubernetes_resource_Quantity",
+          "javaType": "io.fabric8.kubernetes.api.model.Quantity"
+        }
+      },
+      "additionalProperties": true,
+      "javaType": "io.fabric8.kubernetes.api.model.LocalDirVolumeSource",
+      "javaInterfaces": [
+        "io.fabric8.kubernetes.api.model.KubernetesResource"
+      ]
+    },
     "kubernetes_core_EndpointAddress": {
       "type": "object",
       "description": "",
@@ -10244,6 +10259,10 @@
           "$ref": "#/definitions/kubernetes_core_EmptyDirVolumeSource",
           "javaType": "io.fabric8.kubernetes.api.model.EmptyDirVolumeSource"
         },
+        "localDir": {
+          "$ref": "#/definitions/kubernetes_core_LocalDirVolumeSource",
+          "javaType": "io.fabric8.kubernetes.api.model.LocalDirVolumeSource"
+        },
         "fc": {
           "$ref": "#/definitions/kubernetes_core_FCVolumeSource",
           "javaType": "io.fabric8.kubernetes.api.model.FCVolumeSource"
@@ -10375,6 +10394,10 @@
         "subPath": {
           "type": "string",
           "description": ""
+        },
+        "policy": {
+          "$ref": "#/definitions/kubernetes_core_VolumeMountPolicy",
+          "javaType": "io.fabric8.kubernetes.api.model.VolumeMountPolicy"
         }
       },
       "additionalProperties": true,
@@ -10394,6 +10417,45 @@
       },
       "additionalProperties": true,
       "javaType": "io.fabric8.kubernetes.api.model.VolumeNodeAffinity",
+      "javaInterfaces": [
+        "io.fabric8.kubernetes.api.model.KubernetesResource"
+      ]
+    },
+    "kubernetes_core_VolumeMountPolicy": {
+      "type": "object",
+      "description": "",
+      "properties": {
+        "logs": {
+          "$ref": "#/definitions/kubernetes_core_VolumeMountPolicyRotate",
+          "javaType": "io.fabric8.kubernetes.api.model.VolumeMountPolicyRotate"
+        }
+      },
+      "additionalProperties": true,
+      "javaType": "io.fabric8.kubernetes.api.model.VolumeMountPolicy",
+      "javaInterfaces": [
+        "io.fabric8.kubernetes.api.model.KubernetesResource"
+      ]
+    },
+    "kubernetes_core_VolumeMountPolicyRotate": {
+      "type": "object",
+      "description": "",
+      "properties": {
+        "rotate": {
+          "type": "string",
+          "description": ""
+        },
+        "annotations": {
+          "type": "object",
+          "description": "",
+          "additionalProperties": {
+            "type": "string",
+            "description": ""
+          },
+          "javaType": "java.util.Map\u003cString,String\u003e"
+        }
+      },
+      "additionalProperties": true,
+      "javaType": "io.fabric8.kubernetes.api.model.VolumeMountPolicyRotate",
       "javaInterfaces": [
         "io.fabric8.kubernetes.api.model.KubernetesResource"
       ]
@@ -10460,6 +10522,10 @@
         "emptyDir": {
           "$ref": "#/definitions/kubernetes_core_EmptyDirVolumeSource",
           "javaType": "io.fabric8.kubernetes.api.model.EmptyDirVolumeSource"
+        },
+        "localDir": {
+          "$ref": "#/definitions/kubernetes_core_LocalDirVolumeSource",
+          "javaType": "io.fabric8.kubernetes.api.model.LocalDirVolumeSource"
         },
         "fc": {
           "$ref": "#/definitions/kubernetes_core_FCVolumeSource",
